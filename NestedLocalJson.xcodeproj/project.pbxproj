@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2009B8862E12F7D90084EFB4 /* alerts.json in Resources */ = {isa = PBXBuildFile; fileRef = 2009B8852E12F7D20084EFB4 /* alerts.json */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2009B86D2E12F7900084EFB4 /* NestedLocalJson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestedLocalJson.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2009B8852E12F7D20084EFB4 /* alerts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = alerts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		2009B8642E12F7900084EFB4 = {
 			isa = PBXGroup;
 			children = (
+				2009B8852E12F7D20084EFB4 /* alerts.json */,
 				2009B86F2E12F7900084EFB4 /* NestedLocalJson */,
 				2009B86E2E12F7900084EFB4 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2009B8862E12F7D90084EFB4 /* alerts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,39 @@
+{
+  "action": "UpdateDashboardPreference",
+  "rep_id": "501989",
+  "market_code": "FA",
+  "market_state_id": "68",
+  "preference": {
+    "Alert Type": {
+      "Allow Alerts": {
+        "status": 1,
+        "Receive email alerts": {
+          "status": 1
+        },
+        "Receive push notifications": {
+          "status": 1
+        },
+      }
+    },
+    "Preferences": {
+      "Allow Alerts": {
+        "status": 1,
+        "Homelink Estimates": {
+          "status": 1,
+          "Seller Side Estimates": {
+            "status": 1
+          },
+          "Buyer Side Estimates": {
+            "status": 1
+          }
+        },
+        "All Social Posts": {
+          "status": 1
+        },
+        "All Emailed Estimates": {
+          "status": 1
+        }
+      }
+    }
+  }
+}

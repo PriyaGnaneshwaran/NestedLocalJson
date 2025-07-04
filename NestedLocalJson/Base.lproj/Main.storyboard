@@ -1,24 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FNx-bL-7TE">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NestedLocalJson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEt-qX-wLF">
+                                <rect key="frame" x="0.0" y="162" width="393" height="622"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ACW-g7-8q6">
+                                        <rect key="frame" x="196" y="392" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-is-js4">
+                                        <rect key="frame" x="20" y="20" width="353" height="32"/>
+                                        <segments>
+                                            <segment title="Alert Type"/>
+                                            <segment title="Preferance"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="actionSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="c7D-Y7-ZPE"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wD5-Ty-WFe">
+                                        <rect key="frame" x="20" y="59" width="353" height="443"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="D3U-5v-XwV"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="z9v-Mf-YcD"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc5-Jr-Jo4">
+                                        <rect key="frame" x="20" y="533" width="353" height="35"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Wai-m0-NXq"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sFk-C1-pha"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-rm-6LH">
+                                        <rect key="frame" x="20" y="579" width="353" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="wrP-C2-ncD"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Restore Default" image="progress.indicator" catalog="system">
+                                            <color key="titleColor" systemColor="linkColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="DbT-rm-6LH" firstAttribute="leading" secondItem="Vc5-Jr-Jo4" secondAttribute="leading" id="0Io-zL-6Y5"/>
+                                    <constraint firstItem="wD5-Ty-WFe" firstAttribute="top" secondItem="Jdg-is-js4" secondAttribute="bottom" constant="8" symbolic="YES" id="8sr-we-iJ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="wD5-Ty-WFe" secondAttribute="trailing" constant="20" symbolic="YES" id="DS0-ME-NYj"/>
+                                    <constraint firstItem="wD5-Ty-WFe" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" constant="20" symbolic="YES" id="E7y-LU-cPF"/>
+                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="trailing" secondItem="wD5-Ty-WFe" secondAttribute="trailing" id="Ix7-km-jGJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="DbT-rm-6LH" secondAttribute="bottom" constant="8" id="RWI-Yq-bbJ"/>
+                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="top" secondItem="wD5-Ty-WFe" secondAttribute="bottom" constant="31" id="VvZ-cW-dpw"/>
+                                    <constraint firstItem="Jdg-is-js4" firstAttribute="top" secondItem="mEt-qX-wLF" secondAttribute="top" constant="20" id="Y66-6k-dDS"/>
+                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="leading" secondItem="wD5-Ty-WFe" secondAttribute="leading" id="bVP-73-e8g"/>
+                                    <constraint firstItem="DbT-rm-6LH" firstAttribute="trailing" secondItem="Vc5-Jr-Jo4" secondAttribute="trailing" id="dSA-hs-Xtk"/>
+                                    <constraint firstItem="DbT-rm-6LH" firstAttribute="top" secondItem="Vc5-Jr-Jo4" secondAttribute="bottom" constant="11" id="kPa-Ye-Ohf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jdg-is-js4" secondAttribute="trailing" constant="20" id="tSe-Qw-K7M"/>
+                                    <constraint firstItem="Jdg-is-js4" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" constant="20" id="zim-MP-nql"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mEt-qX-wLF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LcV-U5-uQW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mEt-qX-wLF" secondAttribute="bottom" id="j7f-O4-3C6"/>
+                            <constraint firstItem="mEt-qX-wLF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="t8x-Yn-7z0"/>
+                            <constraint firstItem="mEt-qX-wLF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ywU-6V-wcm"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="k8d-09-qMv">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="alertSegment" destination="Jdg-is-js4" id="UGb-EE-2xw"/>
+                        <outlet property="tableView" destination="wD5-Ty-WFe" id="AOi-vV-xKQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bGI-5q-54E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FNx-bL-7TE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vdi-JM-rmQ">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="muP-fH-sGd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rLM-Dn-GFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="progress.indicator" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

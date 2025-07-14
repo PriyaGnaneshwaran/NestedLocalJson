@@ -4,16 +4,17 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="ChildTableViewCell" customModule="NestedLocalJson" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="282" id="KGk-i7-Jjw" customClass="ChildTableViewCell" customModule="NestedLocalJson" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="HzS-IS-GmA">
@@ -33,23 +34,62 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="0og-K6-CRk"/>
+                        </constraints>
                     </stackView>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jtM-OR-dGt">
+                        <rect key="frame" x="40" y="42" width="272" height="27"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="2t6-oJ-fEM"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="gvL-B0-pHd"/>
+                            <outlet property="delegate" destination="-1" id="TDa-Sm-nM0"/>
+                        </connections>
+                    </tableView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nn-sB-z2W">
+                        <rect key="frame" x="20" y="33" width="290" height="1"/>
+                        <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="yf8-WG-eK0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="jtM-OR-dGt" secondAttribute="bottom" constant="11" id="81u-zx-8LA"/>
+                    <constraint firstAttribute="trailing" secondItem="6nn-sB-z2W" secondAttribute="trailing" constant="10" id="Bt3-Vt-ebR"/>
+                    <constraint firstItem="jtM-OR-dGt" firstAttribute="trailing" secondItem="HzS-IS-GmA" secondAttribute="trailing" id="KhZ-gN-i6e"/>
                     <constraint firstAttribute="trailing" secondItem="HzS-IS-GmA" secondAttribute="trailing" constant="8" id="M1J-XA-BlN"/>
+                    <constraint firstItem="6nn-sB-z2W" firstAttribute="top" secondItem="HzS-IS-GmA" secondAttribute="bottom" constant="5" id="OeP-dx-vYs"/>
                     <constraint firstItem="HzS-IS-GmA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Yu0-PI-ztS"/>
-                    <constraint firstAttribute="bottom" secondItem="HzS-IS-GmA" secondAttribute="bottom" constant="8" id="k1A-Ck-p2P"/>
+                    <constraint firstItem="jtM-OR-dGt" firstAttribute="leading" secondItem="HzS-IS-GmA" secondAttribute="leading" id="dlw-sr-0oO"/>
+                    <constraint firstItem="jtM-OR-dGt" firstAttribute="top" secondItem="6nn-sB-z2W" secondAttribute="bottom" constant="8" symbolic="YES" id="hdk-50-rqf"/>
+                    <constraint firstItem="6nn-sB-z2W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="w2f-Ee-EXs"/>
                     <constraint firstItem="HzS-IS-GmA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="z0B-sn-52q"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="childHeight" destination="2t6-oJ-fEM" id="KKb-56-4yP"/>
+                <outlet property="img" destination="eGx-33-Ovg" id="Eiz-C8-czh"/>
                 <outlet property="lblTitle" destination="pii-gP-v7p" id="kox-f8-1EX"/>
+                <outlet property="tableView" destination="jtM-OR-dGt" id="1uT-Nd-5J7"/>
             </connections>
-            <point key="canvasLocation" x="47.328244274809158" y="20.422535211267608"/>
+            <point key="canvasLocation" x="47.328244274809158" y="107.04225352112677"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.1764705882" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

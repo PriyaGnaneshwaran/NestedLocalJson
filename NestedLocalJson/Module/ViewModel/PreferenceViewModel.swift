@@ -9,55 +9,45 @@ import Foundation
 
 class PreferenceViewModel {
     
-    var rawPreferenceData: [String: Any] = [:]
-    var flatData: [(level: Int, item: PreferenceItem)] = []
+    private(set) var parent: [PreferenceItem] = []
+    private(set) var rawReferanceData: [String:Any] = [:]
     
     func loadData() {
-        guard
-            let path  = Bundle.main.path(forResource: "alerts", ofType: "json"),
-            let data  = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            let json  = try? JSONSerialization.jsonObject(with: data) as? NSDictionary,
-            let pref  = json["preference"] as? NSDictionary
-        else {
-            print("Failed to load JSON")
+        guard let url = Bundle.main.url(forResource: "alerts", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any],
+              let pref = json["preference"] as? [String:Any] else {
             return
         }
-        rawPreferenceData = pref as! [String : Any]
+        self.rawReferanceData = pref
+        self.switchStatement(0)
     }
     
-    func loadPreferenceType(index: Int) {
-        flatData.removeAll()
-        
-        let key = index == 0 ? "Alert Type" : "Preferences"
-        guard let prefDict = rawPreferenceData[key] as? NSDictionary else { return }
-        
-        let children = parseOrderedDict(prefDict)
-        flatData = flattenPreferenceItems(children)
+    func switchStatement(_ index: Int) {
+        let index = (index == 0) ? "Alert Type" : "Preferences"
+        guard let dict = rawReferanceData[index] as? [String:Any] else {
+            self.parent =  []
+            return
+        }
+        self.parent = parse(dict)
     }
     
-    func parseOrderedDict(_ dict: NSDictionary) -> [PreferenceItem] {
-        var result: [PreferenceItem] = []
-        
-        for key in dict.allKeys {
-            guard let keyStr = key as? String, keyStr != "status" else { continue }
+    func toggleParent(_ i: Int) {
+        self.parent[i].isExpanded.toggle()
+    }
+    
+    func parse(_ dict: [String:Any], _ level: Int = 0) -> [PreferenceItem] {
+        var items: [PreferenceItem] = []
+        for (key,value) in dict {
+            guard  key != "status" ,  let childDict = value as? [String:Any] else {
+                continue
+            }
+            let status = childDict["status"] as? Int ?? 0
+            let children = parse(childDict, level + 1)
+            items.append(PreferenceItem(title: key, status: status, children: children))
             
-            if let subDict = dict[keyStr] as? NSDictionary {
-                let status   = subDict["status"] as? Int
-                let children = parseOrderedDict(subDict)
-                result.append(PreferenceItem(title: keyStr, status: status, children: children))
-            }
         }
-        return result
-    }
-    
-    func flattenPreferenceItems(_ items: [PreferenceItem], level: Int = 0) -> [(level: Int, item: PreferenceItem)] {
-        var out: [(Int, PreferenceItem)] = []
-        for item in items {
-            out.append((level, item))
-            if let kids = item.children {
-                out.append(contentsOf: flattenPreferenceItems(kids, level: level + 1))
-            }
-        }
-        return out
+        return items
     }
 }
+    

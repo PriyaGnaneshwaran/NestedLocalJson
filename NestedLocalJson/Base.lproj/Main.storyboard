@@ -21,15 +21,18 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="622"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ACW-g7-8q6">
-                                        <rect key="frame" x="196" y="392" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="196" y="376" width="0.0" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="First"/>
+                                            <segment title=""/>
                                             <segment title="Second"/>
                                         </segments>
                                     </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-is-js4">
-                                        <rect key="frame" x="20" y="20" width="353" height="32"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-is-js4">
+                                        <rect key="frame" x="20" y="20" width="353" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cQe-bB-9ch"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="Alert Type"/>
                                             <segment title="Preferance"/>
@@ -38,14 +41,22 @@
                                             <action selector="actionSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="c7D-Y7-ZPE"/>
                                         </connections>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wD5-Ty-WFe">
-                                        <rect key="frame" x="20" y="59" width="353" height="443"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="D3U-5v-XwV"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="z9v-Mf-YcD"/>
-                                        </connections>
-                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sfF-D5-H37">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="443"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wD5-Ty-WFe">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="443"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="443" id="X1J-Bm-QZo"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="D3U-5v-XwV"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="z9v-Mf-YcD"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc5-Jr-Jo4">
                                         <rect key="frame" x="20" y="533" width="353" height="35"/>
                                         <color key="backgroundColor" name="AccentColor"/>
@@ -74,17 +85,17 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="DbT-rm-6LH" firstAttribute="leading" secondItem="Vc5-Jr-Jo4" secondAttribute="leading" id="0Io-zL-6Y5"/>
-                                    <constraint firstItem="wD5-Ty-WFe" firstAttribute="top" secondItem="Jdg-is-js4" secondAttribute="bottom" constant="8" symbolic="YES" id="8sr-we-iJ6"/>
-                                    <constraint firstAttribute="trailing" secondItem="wD5-Ty-WFe" secondAttribute="trailing" constant="20" symbolic="YES" id="DS0-ME-NYj"/>
-                                    <constraint firstItem="wD5-Ty-WFe" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" constant="20" symbolic="YES" id="E7y-LU-cPF"/>
-                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="trailing" secondItem="wD5-Ty-WFe" secondAttribute="trailing" id="Ix7-km-jGJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vc5-Jr-Jo4" secondAttribute="trailing" constant="20" id="2HE-JQ-9SY"/>
+                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="top" secondItem="sfF-D5-H37" secondAttribute="bottom" priority="250" constant="20" id="FO5-id-Qzq"/>
+                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" constant="20" id="Qus-eg-86X"/>
                                     <constraint firstAttribute="bottom" secondItem="DbT-rm-6LH" secondAttribute="bottom" constant="8" id="RWI-Yq-bbJ"/>
-                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="top" secondItem="wD5-Ty-WFe" secondAttribute="bottom" constant="31" id="VvZ-cW-dpw"/>
                                     <constraint firstItem="Jdg-is-js4" firstAttribute="top" secondItem="mEt-qX-wLF" secondAttribute="top" constant="20" id="Y66-6k-dDS"/>
-                                    <constraint firstItem="Vc5-Jr-Jo4" firstAttribute="leading" secondItem="wD5-Ty-WFe" secondAttribute="leading" id="bVP-73-e8g"/>
                                     <constraint firstItem="DbT-rm-6LH" firstAttribute="trailing" secondItem="Vc5-Jr-Jo4" secondAttribute="trailing" id="dSA-hs-Xtk"/>
+                                    <constraint firstItem="sfF-D5-H37" firstAttribute="top" secondItem="Jdg-is-js4" secondAttribute="bottom" constant="10" id="e0f-rT-FfR"/>
+                                    <constraint firstItem="sfF-D5-H37" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" id="hPB-WG-YPf"/>
                                     <constraint firstItem="DbT-rm-6LH" firstAttribute="top" secondItem="Vc5-Jr-Jo4" secondAttribute="bottom" constant="11" id="kPa-Ye-Ohf"/>
                                     <constraint firstAttribute="trailing" secondItem="Jdg-is-js4" secondAttribute="trailing" constant="20" id="tSe-Qw-K7M"/>
+                                    <constraint firstAttribute="trailing" secondItem="sfF-D5-H37" secondAttribute="trailing" id="yKL-oZ-KuN"/>
                                     <constraint firstItem="Jdg-is-js4" firstAttribute="leading" secondItem="mEt-qX-wLF" secondAttribute="leading" constant="20" id="zim-MP-nql"/>
                                 </constraints>
                             </view>
@@ -103,6 +114,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="alertSegment" destination="Jdg-is-js4" id="UGb-EE-2xw"/>
+                        <outlet property="mainTableHeight" destination="wD5-Ty-WFe" id="EoV-qm-pxi"/>
                         <outlet property="tableView" destination="wD5-Ty-WFe" id="AOi-vV-xKQ"/>
                     </connections>
                 </viewController>
@@ -135,7 +147,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

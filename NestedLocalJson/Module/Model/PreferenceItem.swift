@@ -5,17 +5,18 @@
 //  Created by Priya Gnaneshwaran on 30/06/25.
 //
 
+import Foundation
 
-struct PreferenceItem {
-    let title: String
-    let status: Int?
-    var children: [PreferenceItem]?
-//    let subTitle: String?
+class PreferenceItem {
+    var title: String
+    var status: Int
+    var children: [PreferenceItem]
+    var isExpanded: Bool 
     
-    init(title: String, status: Int? = nil, children: [PreferenceItem]? = nil) {
+    init(title: String, status: Int, children: [PreferenceItem], isExpanded: Bool = false) {
         self.title = title
         self.status = status
         self.children = children
-//        self.subTitle = subTitle
+        self.isExpanded = isExpanded
     }
 }
